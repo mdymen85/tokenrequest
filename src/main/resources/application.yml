@@ -1,0 +1,26 @@
+server:
+  port: 8082
+
+feign:
+  client:
+    config:
+      default:
+        loggerLevel: basic
+
+spring:
+  thymeleaf:
+    cache: false
+  security:
+    oauth2:
+      client:
+        registration:
+          tag-name:
+            provider: ${provider-name:provider-name}
+            client-id: ${client-id}
+            client-secret: ${client-secret}
+            authorization-grant-type: client_credentials
+            scope: message.read,message.write
+        provider:
+          provider=name:
+            authorization-uri: ${authorization-uri}
+            token-uri: ${token-url}
